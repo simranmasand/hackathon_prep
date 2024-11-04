@@ -1,0 +1,5 @@
+name: hackathon_prep
+channels:
+  - defaults
+  - conda-forge
+prefix: /Users/simranmasand/mambaforge/envs/hackathon_prep
