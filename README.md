@@ -2,8 +2,16 @@
 
 Repository for hack prep.
 
+
 > **Warning**
-> Due to token limitations, it is highly recommended to push pdfs with less than 5 pages e.g. push textbooks as chapters.
+> Due to token limitations, it is highly recommended to only choose relevant files.
+
+
+## Desired Goal State
+![GoalState.png](assets%2FGoalState.png)
+
+### Current Document RAG State
+![RAG Goal State.png](assets%2FRAG%20Goal%20State.png)
 
 ## Installation
 
@@ -37,6 +45,6 @@ streamlit run main.py
 ![alt text](assets/SS_2.png)
 
 ### Demo app
-![alt text](assets/streamlit-main-2024-11-04-15-11-02.gif)
+![alt text](assets/streamlit-main-2024-11-04-15-11-02_light.gif)
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://pdfninja-2gfoe5cbcah.streamlit.app/)
