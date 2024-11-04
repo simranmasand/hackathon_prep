@@ -37,5 +37,6 @@ streamlit run main.py
 ![alt text](assets/SS_2.png)
 
 ### Demo app
+![alt text](assets/streamlit-main-2024-11-04-15-11-02.gif)
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://pdfninja-2gfoe5cbcah.streamlit.app/)
