@@ -7,6 +7,9 @@ from langchain.vectorstores import FAISS
 from sidebar import sidebar
 from ui import is_open_ai_key_valid, is_query_valid
 from qa import query_folder
+from plot import plot_gpt
+import plotly.graph_objects as go
+
 
 import os
 
@@ -95,18 +98,31 @@ if selected_cb:
 
 
 
-with st.spinner("Indexing document... This may take a while⏳"):
+with st.spinner("Indexing document... This may take a while⏳"): # TODO: Progress bar
     embeddings = OpenAIEmbeddings() # "text-embedding-ada-002"
     docsall = process_documents_new(folder_path) #process documents into a Document schema
     vector_store=FAISS.from_documents(docsall,embeddings) #using openai schema, we process documents into vector database
-    retriever = vector_store.as_retriever(search_kwargs={"k": 8}) #get top k docs # this can be an argaparser requirement
+    retriever = vector_store.as_retriever(search_kwargs={"k": 5}) #get top k docs # this can be an argaparser requirement
 
 # Additional UI elements can go here
 # st.write("This is a synthetic representation for illustrative purposes.")
 
 with st.form(key="qa_form"):
     query = st.text_area("Ask a question about the document")
-    submit = st.form_submit_button("Submit")
+    col1, col2 = st.columns(2)
+    with col1:
+        submit = st.form_submit_button("Submit")
+    with col2:
+        plot = st.form_submit_button("Plot")
+
+
+if plot:
+    fig = go.Figure()
+    llm = OpenAI()
+    fig = plot_gpt(query,"TBC",llm=llm,folder_index=vector_store)# check for valid query
+    st.plotly_chart(fig)
+
+
 
 if submit:
     if not is_query_valid(query):

@@ -29,3 +29,28 @@ FINAL ANSWER:"""
 STUFF_PROMPT = PromptTemplate(
     template=template, input_variables=["summaries", "question"]
 )
+
+
+system_prompt = """
+        You are expert macroeconomic analyst. Your purpose is to find numeric information like trends, forecasts, predictions, estimates from central banks publication supplied and return it in a json format only! You should also come up with a suitable title and provide that as a separate output.
+        json should always have 2 keys: Date in strictly YYYY-MM-DD format, Value in numeric float. here is an example of acceptable json output (you can have as many rows as you want):
+        {{
+        "2023-01-01": 123.45,
+        "2023-02-01": 234.56,
+        "2023-03-01": 345.67
+        }}
+        Below are summary document
+        ---
+        {summaries}
+        ---
+        Each paragraph has its own publication date, if facts conflict, use paragraphs with latest publication date. Please answer the following user question (strictly) based on the facts above, you can do it!:
+        QUESTION: {question}
+        Your output should look like a dictionary like this:
+        {{"output_text": JSON OUTPUT,"plot_title": Suggested plot title}} 
+        """
+
+PLOT_PROMPT = PromptTemplate(
+    template=system_prompt, input_variables=["summaries", "question"]
+)
+
+

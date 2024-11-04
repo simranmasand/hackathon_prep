@@ -41,8 +41,6 @@ def query_folder(
     result = chain(
         {"input_documents": relevant_docs, "question": query}, return_only_outputs=True
     )
-
-
     sources = relevant_docs
 
     # if not return_all:
@@ -54,8 +52,6 @@ def query_folder(
     print(source_keys)
 
     if source_keys==['']:
-        #sources = {"page_content":"","metadata":{"source":"","page":""}}
-
         sources = [Document(
         page_content=" ",
         metadata={"source": "","page":""}
