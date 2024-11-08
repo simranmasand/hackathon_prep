@@ -43,6 +43,7 @@ streamlit run main.py
 ### See an interactive of this below
 ![alt text](assets/SS_1.png)
 ![alt text](assets/SS_2.png)
+![plot_output.png](assets%2Fplot_output.png)
 
 ### Demo app
 ![alt text](assets/streamlit-main-2024-11-04-15-11-02_light.gif)

@@ -32,7 +32,7 @@ def plot_gpt(plot_prompt, plot_title,llm, folder_index):
         # print(response["output_text"])
         # print(response["output_text"][0])
         # print(type(response["output_text"][0]))
-        # data_dict_initial = json.loads(response["output_text"])
+        data_dict_initial = json.loads(response["output_text"])
         # print(data_dict_initial.keys())
         # print(data_dict_initial.values())
 
