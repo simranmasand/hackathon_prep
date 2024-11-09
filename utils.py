@@ -1,7 +1,8 @@
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.document_loaders import PyPDFLoader
+# from langchain.document_loaders import PyPDFLoader
 import os
 from langchain.document_loaders import DirectoryLoader, PyPDFLoader
+import difflib
 
 
 
@@ -34,3 +35,35 @@ def list_pdf_files(directory):
                 pdf_files.append(os.path.join(root, file))
 
     return pdf_files
+
+
+
+
+def generate_word_diff(text1, text2):
+    """
+    Compares two texts word-by-word, highlighting insertions, deletions, and unchanged text.
+    """
+    # Split texts by words for comparison
+    text1_words = text1.split()
+    text2_words = text2.split()
+
+    # Use difflib for a word-by-word comparison
+    diff = list(difflib.ndiff(text1_words, text2_words))
+
+    # HTML output
+    html_output = "<div style='font-family: Arial, sans-serif; line-height: 1.6;'>"
+
+    for word in diff:
+        # Unchanged words (no formatting)
+        if word.startswith(" "):
+            html_output += f"{word[2:]} "
+        # Deletion with strikethrough
+        elif word.startswith("-"):
+            html_output += f"<span style='color: red; text-decoration: line-through;'>{word[2:]}</span> "
+        # Insertion with highlighted background
+        elif word.startswith("+"):
+            html_output += f"<span style='color: black; background-color: lightyellow;'>{word[2:]}</span> "
+
+    html_output += "</div>"
+    return html_output
+
