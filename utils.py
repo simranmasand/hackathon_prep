@@ -1,15 +1,17 @@
 import os
-import difflib
-import requests
-from bs4 import BeautifulSoup
+# import difflib
+# import requests
+# from bs4 import BeautifulSoup
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_openai import OpenAIEmbeddings
+from langchain_experimental.text_splitter import SemanticChunker
 # from langchain.document_loaders import PyPDFLoader
 from langchain.document_loaders import DirectoryLoader, PyPDFLoader
 
 
 
 
-def process_documents_new(directory):
+def process_documents_new(directory,recursive=True,embeddings=OpenAIEmbeddings()):
     '''
     This function uses the CharacterTextSplitter to make documents into smaller chunks admissible into LLMs
 
@@ -19,8 +21,12 @@ def process_documents_new(directory):
     loader = DirectoryLoader(directory, glob="./*.pdf", loader_cls=PyPDFLoader, show_progress=True)
     #TODO add the metadata to the file here. This represents the
     docs = loader.load()
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size = 2000, chunk_overlap = 100, length_function = len, is_separator_regex = False)
-    texts = text_splitter.split_documents(docs)
+    if recursive:
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size = 2000, chunk_overlap = 100, length_function = len, is_separator_regex = False)
+        texts = text_splitter.split_documents(docs)
+    else:
+        text_splitter = SemanticChunker(embeddings)
+        texts = text_splitter.create_documents([d.page_content for d in docs])
 
     return texts
 

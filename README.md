@@ -41,11 +41,33 @@ streamlit run main.py
 ```
 
 ### See an interactive of this below
-![alt text](assets/SS_1.png)
-![alt text](assets/SS_2.png)
-![plot_output.png](assets%2Fplot_output.png)
-![doccomparison.png](assets%2Fdoccomparison.png)
+<table>
+  <tr>
+    <td><img src="assets/SS_1.png" alt="Screenshot 1" width="200"/></td>
+    <td><img src="assets/SS_2.png" alt="Screenshot 2" width="200"/></td>
+  </tr>
+  <tr>
+    <td><img src="assets/plot_output.png" alt="Plot Output" width="200"/></td>
+    <td><img src="assets/doccomparison.png" alt="Doc Comparison" width="200"/></td>
+  </tr>
+  <tr>
+    <td><img src="assets/BoECPITable.png" alt="Screenshot 3" width="200"/></td>
+    <td><img src="assets/PlotOutputCPI.png" alt="Screenshot 4" width="200"/></td>
+  </tr>
+</table>
 
+
+[//]: # (![alt text]&#40;assets/SS_1.png&#41;)
+
+[//]: # (![alt text]&#40;assets/SS_2.png&#41;)
+
+[//]: # (![plot_output.png]&#40;assets%2Fplot_output.png&#41;)
+
+[//]: # (![doccomparison.png]&#40;assets%2Fdoccomparison.png&#41;)
+
+[//]: # (![Screenshot 2024-11-10 at 10.18.20 PM.png]&#40;assets%2FScreenshot%202024-11-10%20at%2010.18.20%E2%80%AFPM.png&#41;)
+
+[//]: # (![Screenshot 2024-11-10 at 10.18.41 PM.png]&#40;assets%2FScreenshot%202024-11-10%20at%2010.18.41%E2%80%AFPM.png&#41;)
 ### Demo app
 ![alt text](assets/streamlit-main-2024-11-04-15-11-02_light.gif)
 
