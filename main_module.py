@@ -67,7 +67,7 @@ def mainmodule(openai_api_key):
 
         with st.spinner("Indexing document... This may take a while⏳"): # TODO: Progress bar
             embeddings = OpenAIEmbeddings() # "text-embedding-ada-002"
-            docsall = process_documents_new(folder_path) #process documents into a Document schema
+            docsall = process_documents_new(folder_path,recursive=False,embeddings=embeddings) #process documents into a Document schema
             vector_store=FAISS.from_documents(docsall,embeddings) #using openai schema, we process documents into vector database
             retriever = vector_store.as_retriever(search_kwargs={"k": 5}) #get top k docs # this can be an argaparser requirement
 
