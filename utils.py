@@ -1,7 +1,11 @@
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.document_loaders import PyPDFLoader
 import os
+import difflib
+import requests
+from bs4 import BeautifulSoup
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+# from langchain.document_loaders import PyPDFLoader
 from langchain.document_loaders import DirectoryLoader, PyPDFLoader
+
 
 
 
@@ -34,3 +38,4 @@ def list_pdf_files(directory):
                 pdf_files.append(os.path.join(root, file))
 
     return pdf_files
+
