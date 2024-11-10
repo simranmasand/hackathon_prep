@@ -44,8 +44,8 @@ streamlit run main.py
 ![alt text](assets/SS_1.png)
 ![alt text](assets/SS_2.png)
 ![plot_output.png](assets%2Fplot_output.png)
+![doccomparison.png](assets%2Fdoccomparison.png)
 
 ### Demo app
 ![alt text](assets/streamlit-main-2024-11-04-15-11-02_light.gif)
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://pdfninja-2gfoe5cbcah.streamlit.app/)
