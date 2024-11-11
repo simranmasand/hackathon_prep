@@ -25,6 +25,7 @@ def process_documents_new(directory,recursive=True,embeddings=OpenAIEmbeddings()
         text_splitter = RecursiveCharacterTextSplitter(chunk_size = 2000, chunk_overlap = 100, length_function = len, is_separator_regex = False)
         texts = text_splitter.split_documents(docs)
     else:
+        print("SemanticChunking")
         text_splitter = SemanticChunker(embeddings)
         texts = text_splitter.create_documents([d.page_content for d in docs])
 

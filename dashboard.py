@@ -1,5 +1,4 @@
 # import streamlit as st
-from main_module import *
 from sidebar import sidebar
 from ui import is_open_ai_key_valid, is_query_valid
 import streamlit as st
@@ -14,6 +13,8 @@ if not openai_api_key:
         "Enter your OpenAI API key in the sidebar. You can get a key at"
         " https://platform.openai.com/account/api-keys."
     )
+
+from main_module import *
 
 
 
